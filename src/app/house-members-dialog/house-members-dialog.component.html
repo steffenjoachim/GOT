@@ -1,0 +1,20 @@
+<div class="house-member-container" (click)="closeDialog()" style="padding: 48px;">
+  <h2>{{ house?.name || selectedHouse?.name }}</h2>
+  <br>
+  <h3>
+    <p *ngIf="selectedHouse && selectedHouse.members">
+      <strong>Associated {{ selectedHouse.members.length === 1 ? 'member' : 'members' }}:</strong>
+    </p>
+    <p *ngIf="!selectedHouse && house && house.members">
+      <strong>Associated {{ house.members.length === 1 ? 'member' : 'members' }}:</strong>
+    </p>
+  </h3>
+  <ul>
+    <li *ngFor="let member of (selectedHouse?.members || house?.members)" 
+        (click)="openPersonDetailDialogComponent(member)"
+        style="color: blue; cursor: pointer;">
+      {{ member.name }}
+    </li>
+  </ul>
+  <a routerLink="/quotes">Get some random quotes from GOT characters!</a>
+</div>

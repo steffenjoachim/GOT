@@ -1,0 +1,16 @@
+<div class="quotes-main-container">
+    <h2>Five Random Quotes:</h2>
+    <div class="quotes-display-container">
+        <ul>
+            <li *ngFor="let quote of filteredQuotes">
+                <strong>Character:</strong> {{ quote.character.name }} <br>
+                <strong>House:</strong>
+                {{ quote.character.house && quote.character.house.name ? quote.character.house.name : 'Not associated to
+                any house' }}
+                <br>
+                <strong>Sentence:</strong> {{ quote.sentence }}
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-primary mt-3" (click)="fetchQuotes()">Get New Quotes</button>
+</div>

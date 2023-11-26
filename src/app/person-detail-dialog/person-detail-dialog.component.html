@@ -1,0 +1,33 @@
+<div class="person-detail-container" (click)="closeDialog()" style="width: 600px; height: 400px;">
+  <h2>{{ person.name || (character && character.name) || 'Name not available' }}</h2>
+  <p>
+    <strong>
+      Belongs to:
+    </strong>
+    <span *ngIf="(person && person.house) || (character && character.house)">
+      <span [style.color]="((person && person.house) || (character && character.house)) ? 'blue' : ''"
+            [style.cursor]="((person && person.house) || (character && character.house)) ? 'pointer' : 'default'"
+            (click)="openHouseMembersDialog(person.house, $event)">
+            {{ (person.house || (character && character.house)) ? (person.house ? person.house.name : character.house.name)
+            : '' }}
+      </span>
+    </span>
+    <span *ngIf="!(person.house || (character && character.house))">
+      Not associated to any house
+    </span>
+  </p>
+  <h3><strong>{{ (person && person.quotes) || (character && character.quotes) ? (((person && person.quotes) ||
+      (character && character.quotes)).length === 1 ? 'Related quote' : 'Related quotes') : 'No quotes available'
+      }}:</strong></h3>
+  <ul>
+    <li *ngFor="let quote of displayedQuotes">{{ quote }}</li>
+  </ul>
+  <div *ngIf="totalPages > 1">
+    <button *ngIf="currentPage > 1" class="btn btn-secondary" (click)="previousPage($event)">Previous</button>
+    <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button *ngIf="currentPage < totalPages" class="btn btn-secondary" (click)="nextPage($event)">Next</button>
+  </div>
+  <br>
+  <br>
+  <a routerLink="/quotes" style="margin-top: 32px;">Get some random quotes from GOT characters!</a>
+</div>

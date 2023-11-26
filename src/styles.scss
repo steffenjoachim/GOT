@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: Game of Thrones;
+    src: url('/assets/fonts/Game of Thrones.ttf');
+}
+
+@font-face{
+    font-family: OpenSans-Regular;
+    src: url('/assets/fonts/OpenSans-Regular.ttf');
+}
+
+html, body { height: 100%; }
+body { 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    font-family: OpenSans-Regular, sans-serif; }
+
+h1,h2,h3{
+    font-family: Game of Thrones !important;
+    word-spacing: 4px;
+}
+
+h1{
+    text-align: center;
+}
+
+.main-container{
+    margin-top: 20px;
+    flex: 1;
+}

@@ -1,0 +1,20 @@
+.persons-main-div{
+    padding: 0 64px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    flex: 1 1 45%;
+    border: 5px solid rgb(226, 230, 234);
+    border-radius: 5px;
+    margin-bottom: 10px; 
+    margin-right: 20px;
+    padding: 10px; 
+    cursor: pointer;
+  }

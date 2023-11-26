@@ -1,0 +1,27 @@
+<div class="houses-main-div">
+  <div class="container-fluid">
+    <div class="row m-5">
+      <div class="col-md-12">
+        <form class="card card-sm" (ngSubmit)="filterHouses()">
+          <div class="card-body row no-gutters align-items-center py-1">
+            <div class="col">
+              <div class="input-container">
+                <input [(ngModel)]="searchTerm" type="search" name='item_name' class="form-control border-0">
+                <span class="placeholder">Search for a house</span>
+              </div>
+            </div>
+            <div class="col-lg-auto order-lg-2 mt-3 mt-lg-0 d-flex justify-content-center align-items-center">
+              <button class="btn btn-light" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <h2>Houses:</h2>
+  <ul>
+    <li *ngFor="let house of filteredHouses" (click)="openHouseMembersDialog(house)">
+      {{ house.name }}
+    </li>
+  </ul>
+</div>
