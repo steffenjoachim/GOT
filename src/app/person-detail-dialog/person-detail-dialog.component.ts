@@ -117,6 +117,7 @@ export class PersonDetailDialogComponent {
 
   openHouseMembersDialog(house: any, event?: Event) {
     this.closeDialog();
+    console.log(house)
     if (event) {event.stopPropagation();}
     if (!house || !house.name) {return;}
     const selectedHouse = this.houses.find((h) => h.name === house.name);
@@ -141,6 +142,16 @@ export class PersonDetailDialogComponent {
   
   setSelectedHouse(house: any) {
     this.houseService.setSelectedHouse(house);
+  }
+
+
+  getHouseForDialog() {
+    return (this.person && this.person.house) ? this.person.house : (this.character && this.character.house);
+  }
+  
+
+  getHouseNameForDialog() {
+    return (this.person && this.person.house) ? this.person.house.name : (this.character && this.character.house.name);
   }
 
 

@@ -7,11 +7,10 @@
     <span *ngIf="(person && person.house) || (character && character.house)">
       <span [style.color]="((person && person.house) || (character && character.house)) ? 'blue' : ''"
             [style.cursor]="((person && person.house) || (character && character.house)) ? 'pointer' : 'default'"
-            (click)="openHouseMembersDialog(person.house, $event)">
-            {{ (person.house || (character && character.house)) ? (person.house ? person.house.name : character.house.name)
-            : '' }}
+            (click)="openHouseMembersDialog(getHouseForDialog(), $event)">
+            {{ getHouseNameForDialog() }}
       </span>
-    </span>
+    </span>     
     <span *ngIf="!(person.house || (character && character.house))">
       Not associated to any house
     </span>
