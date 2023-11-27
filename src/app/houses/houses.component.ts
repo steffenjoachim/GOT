@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { HouseMembersDialogComponent } from '../house-members-dialog/house-members-dialog.component';
-
+import { HouseService } from '../house.service';
 
 @Component({
   selector: 'app-houses',
@@ -17,7 +17,7 @@ export class HousesComponent implements OnInit {
   searchTerm = ''; 
 
 
-  constructor(private http: HttpClient, private dialog: MatDialog) { }
+  constructor(private http: HttpClient, private dialog: MatDialog,private houseService: HouseService) { }
 
 
   ngOnInit(): void {
@@ -46,6 +46,7 @@ export class HousesComponent implements OnInit {
     
 
   openHouseMembersDialog(house: any) {
+    this.houseService.setSelectedHouse(house);
     this.dialog.open(HouseMembersDialogComponent, {
       data: house,
     });

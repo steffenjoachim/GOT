@@ -36,6 +36,7 @@ export class HouseService {
 
 
   setSelectedHouse(house: any) {
+    this.selectedHouse = null;
     this.selectedHouse = house; 
   }
 }
